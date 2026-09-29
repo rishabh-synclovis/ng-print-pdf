@@ -1,0 +1,36 @@
+{
+  "name": "ngx-print-pdf",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Print any Angular UI exactly as rendered on screen using the browser's native print engine.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rishabh-synclovis/ng-print-pdf.git"
+  },
+  "keywords": [
+    "angular",
+    "print",
+    "pdf",
+    "window.print",
+    "print-to-pdf"
+  ],
+  "peerDependencies": {
+    "@angular/common": ">=17.0.0 <21.0.0",
+    "@angular/core": ">=17.0.0 <21.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2022/ngx-print-pdf.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./fesm2022/ngx-print-pdf.mjs"
+    }
+  }
+}
