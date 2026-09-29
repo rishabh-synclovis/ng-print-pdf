@@ -1,0 +1,120 @@
+<div class="page">
+  <header class="toolbar" ngxppNoPrint>
+    <h1>ngx-print-pdf demo</h1>
+    <div class="toolbar-actions">
+      <label class="toggle">
+        <input type="checkbox" [(ngModel)]="includeSignature" />
+        Include signature block
+      </label>
+      <button type="button" (click)="onPrintClick()" [disabled]="printing">
+        {{ printing ? 'Preparing…' : 'Print / Save as PDF' }}
+      </button>
+    </div>
+  </header>
+
+  @if (errorMessage) {
+    <p class="error" ngxppNoPrint>{{ errorMessage }}</p>
+  }
+
+  <aside class="side-nav" ngxppNoPrint>
+    <p>This sidebar, the toolbar above, and this note are excluded from the printed output via <code>ngxppNoPrint</code>.</p>
+    <ul>
+      <li>Dashboard</li>
+      <li>Invoices</li>
+      <li>Clients</li>
+      <li>Settings</li>
+    </ul>
+  </aside>
+
+  <main #invoiceRoot class="invoice">
+    <section class="invoice-header">
+      <div class="brand">
+        <div class="logo">AC</div>
+        <div>
+          <h2>Acme Cloud Services</h2>
+          <p>123 Market Street, Suite 400<br />San Francisco, CA 94105</p>
+        </div>
+      </div>
+      <div class="invoice-meta">
+        <h2>INVOICE</h2>
+        <p><strong>No:</strong> INV-2026-0042</p>
+        <p><strong>Date:</strong> September 29, 2026</p>
+        <p><strong>Due:</strong> October 13, 2026</p>
+      </div>
+    </section>
+
+    <section class="bill-to">
+      <h3>Bill To</h3>
+      <p>
+        <input class="client-input" type="text" [(ngModel)]="clientName" />
+      </p>
+      <p>456 Enterprise Ave<br />Palo Alto, CA 94301</p>
+    </section>
+
+    <table class="line-items">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloud hosting — Production tier</td>
+          <td>1</td>
+          <td>$1,200.00</td>
+          <td>$1,200.00</td>
+        </tr>
+        <tr>
+          <td>Support &amp; SLA (Gold)</td>
+          <td>1</td>
+          <td>$350.00</td>
+          <td>$350.00</td>
+        </tr>
+        <tr>
+          <td>Data egress (extra)</td>
+          <td>240 GB</td>
+          <td>$0.08</td>
+          <td>$19.20</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Subtotal</td>
+          <td>$1,569.20</td>
+        </tr>
+        <tr>
+          <td colspan="3">Tax (8.5%)</td>
+          <td>$133.38</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3">Total Due</td>
+          <td>$1,702.58</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <section class="status-badges">
+      <span class="badge badge-paid">Paid</span>
+      <span class="badge badge-info">Auto-billed</span>
+      <span class="badge badge-warn">Reviewed</span>
+    </section>
+
+    @if (includeSignature) {
+      <section class="signature">
+        <div class="sig-line">
+          <span>Authorized signature</span>
+        </div>
+        <div class="sig-line">
+          <span>Date</span>
+        </div>
+      </section>
+    }
+
+    <footer class="invoice-footer">
+      <p>Thank you for your business! Payment is due within 14 days of the invoice date.</p>
+    </footer>
+  </main>
+</div>
