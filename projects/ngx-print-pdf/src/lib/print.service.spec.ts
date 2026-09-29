@@ -2,6 +2,10 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { PrintService } from './print.service';
 
+// NOTE: provideZonelessChangeDetection() is purely a test-harness choice for
+// THIS workspace (Angular 20's zoneless-by-default tooling) and does not
+// affect consumers: PrintService itself uses no zone/zoneless-specific APIs,
+// so it works unchanged in zone-based apps as old as Angular 17.
 describe('PrintService', () => {
   let service: PrintService;
   let printSpy: jasmine.Spy;

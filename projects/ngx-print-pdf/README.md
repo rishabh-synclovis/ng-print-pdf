@@ -1,5 +1,7 @@
 # ngx-print-pdf
 
+**Supports Angular 17 through 20** (peer dependency range `>=17.0.0 <21.0.0`).
+
 Print any on-screen Angular content — with the exact same UI, computed styles,
 colors, images and live form values you see on screen — using the browser's
 own native print engine. The user gets the standard print dialog and can
